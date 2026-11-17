@@ -49,4 +49,4 @@ chaque push sur `main` redéploie le site automatiquement.
 
 ## Licence
 
-À définir.
+CC BY-SA 4.0 — voir [LICENSE](LICENSE).
