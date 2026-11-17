@@ -1,10 +1,9 @@
 # CartaJiji-site
 
 Site public de **CartaJiji** — flashcards pour réviser en jouant
-(multiplications, géographie, langues, histoire), publié via GitHub Pages.
+(multiplications, géographie, langues, histoire).
 
-- Site : https://ratithoglys.github.io/CartaJiji-site/
-- Domaine prévu : `cartajiji.crealen.com` (voir ci-dessous)
+- Site : https://cartajiji.crealen.com/
 - Appli (repo privé) : `Ratithoglys/CartaJiji`
 - Contenu distant (v3) : `Ratithoglys/CartaJiji-Cards` (à créer, chantier C)
 
@@ -15,27 +14,39 @@ Charte reprise de l'appli : fond `#fffbeb`, dégradé ambre
 `#f59e0b → #ea580c`, Fredoka / Plus Jakarta Sans, carte blanche à
 bordure grise, icône livre ouvert (même `icon.svg` que l'appli).
 
-La page contient une démo interactive (6 cartes, retournement 3D,
-boîtes Leitner), la liste des 6 leçons de la v2.1.1 (1 732 cartes) et
-le téléchargement de l'APK `downloads/CartaJiji-2.1.1.apk`.
+- Page d'accueil + démo interactive (6 cartes, retournement 3D,
+  boîtes Leitner, drapeaux sur les cartes concernées).
+- Les 6 leçons de la v2.1.1 (1 732 cartes), avec drapeaux et blasons
+  repris de l'appli (`assets/flags/`, `assets/blasons/`).
+- Téléchargement de l'APK : `downloads/CartaJiji-2.1.1.apk`.
+- `sitemap.xml`, `robots.txt`, `CNAME`, `.nojekyll`.
 
 ## Déploiement
 
-GitHub Pages, source : branche `main`, racine (`/`).
-Activation via l'API Pages (`POST /repos/Ratithoglys/CartaJiji-site/pages`).
+GitHub Pages, source « GitHub Actions » (`.github/workflows/pages.yml`) :
+chaque push sur `main` redéploie le site automatiquement.
 
-## Domaine cartajiji.crealen.com (à faire)
+## Domaine
 
-1. DNS (crealen.com est chez OVH) : CNAME `cartajiji` →
-   `ratithoglys.github.io`.
-2. Dans le repo : fichier `CNAME` contenant `cartajiji.crealen.com`
-   (ou réglage dans Settings → Pages → Custom domain).
-3. Activer « Enforce HTTPS » une fois le certificat émis.
+`cartajiji.crealen.com` (en ligne depuis le 17/11/2026) :
+
+1. DNS chez OVH : CNAME `cartajiji` → `ratithoglys.github.io`.
+2. Fichier `CNAME` à la racine du repo.
+3. Domaine déclaré dans Settings → Pages (vérification DNS OK).
+4. HTTPS : certificat valide ; « Enforce HTTPS » à activer dès que
+   la case devient disponible dans les réglages Pages.
 
 ## Mettre à jour le site
 
-Modifier les fichiers à la racine, commiter sur `main` (repo dédié
-au site, pas de branche `kev/` : c'est le repo de publication).
-Pour une nouvelle version de l'appli : remplacer le fichier dans
-`downloads/`, mettre à jour le numéro de version et les compteurs
-dans `index.html`, et le lien du bouton de téléchargement.
+- Nouvelle version de l'appli : remplacer le fichier dans
+  `downloads/`, mettre à jour le numéro de version, les compteurs
+  (leçons / cartes) et le lien du bouton dans `index.html`,
+  puis mettre à jour `lastmod` dans `sitemap.xml`.
+- Nouvelle leçon : ajouter sa carte dans `index.html` (avec ses
+  images dans `assets/`) et ajuster les compteurs.
+- Les images ont leurs largeurs fixées en attributs HTML : elles ne
+  débordent jamais, même si la CSS en cache est l'ancienne.
+
+## Licence
+
+À définir.
