@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CartaJiji — Révise en jouant</title>
+<meta name="description" content="CartaJiji : des flashcards pour réviser les tables de multiplication, la géographie, les langues et l'histoire — en jouant, avec la méthode Leitner.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-512.png">
+<meta property="og:title" content="CartaJiji — Révise en jouant">
+<meta property="og:description" content="Flashcards de calcul mental, géographie, langues et histoire. Méthode Leitner, QCM ou carte à retourner, hors-ligne.">
+<meta property="og:image" content="icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#">
+    <img src="icon.svg" alt="Icône CartaJiji : un livre ouvert sur une carte" width="44" height="44">
+    <span class="brand-name">CartaJiji</span>
+  </a>
+  <nav>
+    <a href="#demo">Essayer</a>
+    <a href="#lecons">Leçons</a>
+    <a href="#methode">Méthode</a>
+    <a class="btn btn-small" href="#telecharger">Télécharger</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Flash Cards</p>
+      <h1>Révise en jouant.</h1>
+      <p class="lead">CartaJiji transforme les révisions en jeu de cartes&nbsp;: tables de multiplication, géographie, langues, histoire. Tu retournes la carte, tu t'auto-évalues, et la méthode Leitner s'occupe du reste.</p>
+      <p class="cta-row">
+        <a class="btn btn-primary" href="#demo">Essayer la démo</a>
+        <a class="btn btn-secondary" href="#telecharger">Télécharger l'APK</a>
+      </p>
+      <ul class="stats">
+        <li><strong>6</strong> leçons</li>
+        <li><strong>1&nbsp;732</strong> cartes</li>
+        <li><strong>4</strong> matières</li>
+        <li><strong>100&nbsp;%</strong> hors-ligne</li>
+      </ul>
+    </div>
+    <div class="hero-card" aria-hidden="true">
+      <div class="mini-card">
+        <span class="mini-badge">Multiplication</span>
+        <span class="mini-question">7 × 8</span>
+        <span class="mini-hint">clique pour retourner</span>
+        <span class="mini-foot">CartaJiji</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="demo">
+    <h2>Essaie une carte</h2>
+    <p class="section-intro">Clique sur la carte pour la retourner, puis dis si tu savais&nbsp;: comme dans l'appli, les cartes ratées reviennent plus vite, les cartes sues sortent du paquet.</p>
+
+    <div class="boxes" aria-label="Boîtes Leitner">
+      <span class="box box-1">Boîte 1 · à revoir <b id="count-1">0</b></span>
+      <span class="box box-2">Boîte 2 · en cours <b id="count-2">6</b></span>
+      <span class="box box-3">Boîte 3 · maîtrisé <b id="count-3">0</b></span>
+    </div>
+
+    <div class="card-stage">
+      <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="Carte flash : cliquer pour retourner">
+        <div class="face face-front">
+          <span class="card-badge" id="card-badge">Multiplication</span>
+          <span class="card-question" id="card-question">7 × 8</span>
+          <span class="card-hint">Clique pour retourner la carte</span>
+        </div>
+        <div class="face face-back">
+          <span class="card-badge" id="card-badge-back">Multiplication</span>
+          <span class="card-answer" id="card-answer">56</span>
+          <span class="card-detail" id="card-detail">7 × 8 = 56</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="demo-actions">
+      <button class="btn btn-review" id="btn-review" disabled>À revoir</button>
+      <button class="btn btn-known" id="btn-known" disabled>Je savais&nbsp;!</button>
+      <button class="btn btn-ghost" id="btn-next">Carte suivante</button>
+    </p>
+    <p class="demo-progress" id="demo-progress">Carte 1 / 6 — paquet de démo</p>
+    <p class="demo-done" id="demo-done" hidden>🎉 Paquet terminé&nbsp;! Toutes les cartes sont en boîte 3. <button class="btn btn-ghost" id="btn-restart">Recommencer</button></p>
+  </section>
+
+  <section id="lecons" class="lessons">
+    <h2>Les leçons</h2>
+    <p class="section-intro">Six leçons en version 2.1.1, avec des sous-thèmes combinables — et de nouvelles leçons d'espagnol en préparation.</p>
+    <div class="lesson-grid">
+      <article class="lesson" style="--from:#059669;--to:#0d9488">
+        <h3>Pays du monde</h3>
+        <p class="lesson-meta">Géographie · 784 cartes</p>
+        <p>Europe, Amériques, Asie, Afrique, Océanie — drapeau, capitale et position sur la carte.</p>
+      </article>
+      <article class="lesson" style="--from:#2563eb;--to:#1d4ed8">
+        <h3>Régions, départements et territoires français</h3>
+        <p class="lesson-meta">Géographie · 578 cartes</p>
+        <p>Métropole, Outre-mer, Territoires — blasons et cartes de France.</p>
+      </article>
+      <article class="lesson" style="--from:#ea580c;--to:#c2410c">
+        <h3>Animaux</h3>
+        <p class="lesson-meta">Langues · 102 cartes</p>
+        <p>Anglais, espagnol, italien — avec écoute de la prononciation.</p>
+      </article>
+      <article class="lesson" style="--from:#7c3aed;--to:#6d28d9">
+        <h3>La famille</h3>
+        <p class="lesson-meta">Langues · 96 cartes</p>
+        <p>Anglais, espagnol, italien — les mots du quotidien.</p>
+      </article>
+      <article class="lesson" style="--from:#0891b2;--to:#0e7490">
+        <h3>Verbes de base</h3>
+        <p class="lesson-meta">Langues · 120 cartes</p>
+        <p>Anglais, espagnol, italien — les verbes à connaître en premier.</p>
+      </article>
+      <article class="lesson" style="--from:#be123c;--to:#9f1239">
+        <h3>Byzance et l'Europe carolingienne</h3>
+        <p class="lesson-meta">Histoire · 52 cartes</p>
+        <p>Une leçon d'histoire-géo de 5<sup>e</sup>, en fiches courtes.</p>
+      </article>
+    </div>
+    <p class="lessons-note">Et les maths, bien sûr&nbsp;: tables de multiplication de 0 à 11, divisions, carrés et cubes.</p>
+  </section>
+
+  <section id="methode" class="method">
+    <h2>La méthode Leitner, en trois boîtes</h2>
+    <div class="steps">
+      <article>
+        <span class="step-num">1</span>
+        <h3>Choisis ta leçon</h3>
+        <p>Un sujet, des sous-thèmes, un paquet de 10, 20, 30 ou 50 cartes — ou tout le paquet.</p>
+      </article>
+      <article>
+        <span class="step-num">2</span>
+        <h3>Retourne les cartes</h3>
+        <p>En mode flashcard tu t'auto-évalues, en mode interactif tu réponds à un QCM à 4 choix. Un minuteur en option corse le jeu.</p>
+      </article>
+      <article>
+        <span class="step-num">3</span>
+        <h3>Les boîtes font le tri</h3>
+        <p>«&nbsp;Je savais&nbsp;!&nbsp;» fait progresser la carte, «&nbsp;À revoir&nbsp;» la renvoie en boîte 1. Une carte maîtrisée sort du paquet — confettis à la clé.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="telecharger" class="download">
+    <h2>Télécharger CartaJiji</h2>
+    <p class="section-intro">Version 2.1.1 — Android, gratuite, sans compte, sans publicité, et utilisable hors-ligne.</p>
+    <p class="cta-row">
+      <a class="btn btn-primary btn-big" href="downloads/CartaJiji-2.1.1.apk">Télécharger l'APK (7,1&nbsp;Mo)</a>
+    </p>
+    <p class="download-note">Si Play Protect bloque l'installation, choisis «&nbsp;Installer quand même&nbsp;»&nbsp;: l'appli n'est pas (encore) distribuée via le Play Store, son certificat n'est donc pas reconnu.</p>
+  </section>
+</main>
+
+<footer>
+  <p>CartaJiji v2.1.1 • Flash Cards</p>
+  <p>par <a href="https://crealen.com">crealen</a> · <a href="https://github.com/Ratithoglys/CartaJiji-site">code du site</a></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

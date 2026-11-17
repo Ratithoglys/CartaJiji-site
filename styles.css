@@ -1,0 +1,183 @@
+/* CartaJiji — site vitrine. Reprend la charte de l'appli :
+   fond #fffbeb, dégradé ambre #f59e0b → #ea580c, Fredoka en titres,
+   Plus Jakarta Sans en texte, cartes blanches à bordure grise. */
+
+:root {
+  --amber: #f59e0b;
+  --amber-dark: #ea580c;
+  --bg: #fffbeb;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --border: #64748b;
+  --red: #dc2626;
+  --green: #16a34a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  background-image: radial-gradient(circle, #e2e8f0 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+h1, h2, h3, .brand-name, .font-display {
+  font-family: 'Fredoka', 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.15;
+}
+
+h2 { font-size: 1.9rem; margin: 0 0 .5rem; }
+.section-intro { color: var(--muted); max-width: 36rem; margin: 0 auto 2rem; }
+section { padding: 3.5rem 1.25rem; max-width: 64rem; margin: 0 auto; text-align: center; }
+
+/* Barre du haut */
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .6rem 1.25rem;
+  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .15);
+}
+.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+.brand-name { color: #fff; font-size: 1.5rem; font-weight: 700; }
+.topbar nav { display: flex; align-items: center; gap: 1.1rem; }
+.topbar nav a { color: #fff; text-decoration: none; font-weight: 600; }
+.topbar nav a:hover { text-decoration: underline; }
+
+/* Boutons */
+.btn {
+  display: inline-block; padding: .7rem 1.4rem; border-radius: 999px;
+  font-weight: 700; text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; font-size: 1rem;
+  font-family: inherit;
+}
+.btn-small { padding: .4rem 1rem; background: #fff; color: var(--amber-dark); }
+.btn-primary { background: linear-gradient(135deg, var(--amber), var(--amber-dark)); color: #fff; box-shadow: 0 4px 14px rgba(234, 88, 12, .35); }
+.btn-secondary { background: #fff; color: var(--amber-dark); border-color: var(--amber-dark); }
+.btn-big { font-size: 1.15rem; padding: .9rem 1.8rem; }
+.btn-review { background: #fee2e2; color: var(--red); border-color: var(--red); }
+.btn-known { background: #dcfce7; color: var(--green); border-color: var(--green); }
+.btn-ghost { background: transparent; color: var(--muted); border-color: #cbd5e1; }
+.btn:disabled { opacity: .45; cursor: default; }
+
+/* Hero */
+.hero {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 2.5rem;
+  text-align: left; padding-top: 4rem;
+}
+.hero-text { flex: 1 1 22rem; }
+.eyebrow {
+  display: inline-block; margin: 0 0 .5rem; padding: .2rem .8rem;
+  background: #fff; border: 2px solid var(--amber); border-radius: 999px;
+  color: var(--amber-dark); font-weight: 700; font-size: .85rem;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); margin: 0 0 1rem; }
+.lead { font-size: 1.15rem; color: #334155; }
+.cta-row { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.5rem 0; }
+.stats { list-style: none; display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 0; margin: 1.5rem 0 0; }
+.stats li { color: var(--muted); }
+.stats strong { display: block; font-size: 1.6rem; color: var(--ink); font-family: 'Fredoka', sans-serif; }
+
+/* Mini-carte décorative du hero */
+.hero-card { flex: 0 1 20rem; margin: 0 auto; }
+.mini-card {
+  position: relative; width: min(88vw, 300px); aspect-ratio: 0.68;
+  margin: 0 auto; padding: 1.2rem;
+  background: #fff; border: 6px solid var(--border); border-radius: 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .18);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .8rem;
+  transform: rotate(2deg);
+}
+.mini-badge {
+  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+  color: #fff; font-weight: 700; font-size: .8rem;
+  padding: .25rem .8rem; border-radius: 999px;
+}
+.mini-question { font-family: 'Fredoka', sans-serif; font-size: 3rem; font-weight: 700; }
+.mini-hint { color: var(--muted); font-size: .9rem; }
+.mini-foot {
+  position: absolute; bottom: .9rem; right: 1.1rem;
+  color: var(--muted); font-size: .8rem; font-weight: 600;
+}
+
+/* Démo : boîtes Leitner */
+.boxes { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-bottom: 1.5rem; }
+.box { padding: .35rem .9rem; border-radius: 999px; font-weight: 600; font-size: .9rem; background: #fff; border: 2px solid #cbd5e1; }
+.box b { font-family: 'Fredoka', sans-serif; }
+.box-1 { border-color: var(--red); color: var(--red); }
+.box-2 { border-color: var(--amber); color: #b45309; }
+.box-3 { border-color: var(--green); color: var(--green); }
+
+/* Démo : carte à retourner */
+.card-stage { perspective: 1000px; display: flex; justify-content: center; }
+.flashcard {
+  position: relative; width: min(94vw, 460px); height: clamp(320px, 60vh, 480px);
+  transform-style: preserve-3d; transition: transform .55s ease;
+  cursor: pointer; outline: none;
+}
+.flashcard.flipped { transform: rotateY(180deg); }
+.face {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  padding: 1.5rem; background: #fff; border: 6px solid var(--border); border-radius: 28px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .15);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  text-align: center;
+}
+.face-back { transform: rotateY(180deg); background: linear-gradient(160deg, #fff, #fef3c7); }
+.card-badge {
+  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+  color: #fff; font-weight: 700; font-size: .85rem;
+  padding: .3rem .9rem; border-radius: 999px;
+}
+.card-question, .card-answer { font-family: 'Fredoka', sans-serif; font-size: clamp(1.8rem, 6vw, 2.6rem); font-weight: 700; }
+.card-hint, .card-detail { color: var(--muted); }
+.demo-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-top: 1.5rem; }
+.demo-progress { color: var(--muted); }
+.demo-done { font-weight: 700; color: var(--green); }
+
+/* Leçons */
+.lesson-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; text-align: left; }
+.lesson {
+  padding: 1.4rem; border-radius: 20px; color: #fff;
+  background: linear-gradient(135deg, var(--from), var(--to));
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+}
+.lesson h3 { margin: 0 0 .3rem; font-size: 1.25rem; }
+.lesson-meta { margin: 0 0 .6rem; font-weight: 700; opacity: .9; }
+.lesson p:last-child { margin: 0; opacity: .95; }
+.lessons-note { margin-top: 1.5rem; color: var(--muted); }
+
+/* Méthode */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; text-align: left; }
+.steps article { background: #fff; border: 2px solid #e2e8f0; border-radius: 20px; padding: 1.4rem; }
+.step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.4rem; height: 2.4rem; border-radius: 50%;
+  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+  color: #fff; font-family: 'Fredoka', sans-serif; font-size: 1.2rem; font-weight: 700;
+}
+.steps h3 { margin: .8rem 0 .4rem; }
+.steps p { margin: 0; color: var(--muted); }
+
+/* Téléchargement */
+.download { background: #fff; border-top: 2px solid #fde68a; border-bottom: 2px solid #fde68a; max-width: none; }
+.download .section-intro { margin-bottom: 1.5rem; }
+.download-note { color: var(--muted); max-width: 34rem; margin: 1.5rem auto 0; font-size: .95rem; }
+
+/* Pied de page */
+footer { text-align: center; padding: 2rem 1rem 2.5rem; color: var(--muted); }
+footer p { margin: .2rem 0; }
+footer a { color: var(--amber-dark); }
+
+@media (max-width: 560px) {
+  .topbar nav a:not(.btn) { display: none; }
+  section { padding: 2.5rem 1rem; }
+}

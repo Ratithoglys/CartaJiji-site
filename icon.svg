@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle -->
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad)" />
+
+  <!-- Center flashcard, PORTRAIT like the validated proposal (198 x 290, ratio 0.68),
+       white, with the grey border used by the in-app cards -->
+  <rect x="157" y="111" width="198" height="290" rx="36" fill="#ffffff" stroke="#64748b" stroke-width="18" filter="url(#shadow)" />
+
+  <!-- Open book, centred on the card (85% of the card width, as in the proposal) -->
+  <!-- Left page (teal) -->
+  <path d="M178 200 L256 211 L256 313 L178 309 Z" fill="#ffffff" stroke="#0d9488" stroke-width="9" stroke-linejoin="round" />
+  <!-- Right page (dark blue) -->
+  <path d="M334 200 L256 211 L256 313 L334 309 Z" fill="#ffffff" stroke="#155e75" stroke-width="9" stroke-linejoin="round" />
+  <!-- Text lines, left page -->
+  <path d="M190 229 L244 236" stroke="#0d9488" stroke-width="6" stroke-linecap="round" />
+  <path d="M190 247 L244 254" stroke="#0d9488" stroke-width="6" stroke-linecap="round" />
+  <path d="M190 265 L244 272" stroke="#0d9488" stroke-width="6" stroke-linecap="round" />
+  <path d="M190 284 L244 291" stroke="#0d9488" stroke-width="6" stroke-linecap="round" />
+  <!-- Text lines, right page -->
+  <path d="M268 236 L322 229" stroke="#155e75" stroke-width="6" stroke-linecap="round" />
+  <path d="M268 254 L322 247" stroke="#155e75" stroke-width="6" stroke-linecap="round" />
+  <path d="M268 272 L322 265" stroke="#155e75" stroke-width="6" stroke-linecap="round" />
+  <path d="M268 291 L322 284" stroke="#155e75" stroke-width="6" stroke-linecap="round" />
+</svg>
