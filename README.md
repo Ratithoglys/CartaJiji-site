@@ -26,7 +26,7 @@ Activation via l'API Pages (`POST /repos/Ratithoglys/CartaJiji-site/pages`).
 
 ## Domaine cartajiji.crealen.com (à faire)
 
-1. DNS (crealen.com est chez AlwaysData) : CNAME `cartajiji` →
+1. DNS (crealen.com est chez OVH) : CNAME `cartajiji` →
    `ratithoglys.github.io`.
 2. Dans le repo : fichier `CNAME` contenant `cartajiji.crealen.com`
    (ou réglage dans Settings → Pages → Custom domain).
