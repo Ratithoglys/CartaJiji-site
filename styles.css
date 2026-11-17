@@ -49,6 +49,11 @@ section { padding: 3.5rem 1.25rem; max-width: 64rem; margin: 0 auto; text-align:
 .topbar nav { display: flex; align-items: center; gap: 1.1rem; }
 .topbar nav a { color: #fff; text-decoration: none; font-weight: 600; }
 .topbar nav a:hover { text-decoration: underline; }
+/* Le lien bouton doit rester ambre sur fond blanc : sans cette règle,
+   `.topbar nav a` (plus spécifique que `.btn-small`) le mettait en blanc
+   sur blanc (corrigé le 17/11). */
+.topbar nav a.btn-small { color: var(--amber-dark); background: #fff; }
+.topbar nav a.btn-small:hover { text-decoration: none; }
 
 /* Boutons */
 .btn {
@@ -138,6 +143,8 @@ section { padding: 3.5rem 1.25rem; max-width: 64rem; margin: 0 auto; text-align:
   padding: .3rem .9rem; border-radius: 999px;
 }
 .card-question, .card-answer { font-family: 'Fredoka', sans-serif; font-size: clamp(1.8rem, 6vw, 2.6rem); font-weight: 700; }
+.card-img { width: 84px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, .2); background: #fff; }
+.card-img.tall { width: 64px; }
 .card-hint, .card-detail { color: var(--muted); }
 .demo-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-top: 1.5rem; }
 .demo-progress { color: var(--muted); }
@@ -151,6 +158,9 @@ section { padding: 3.5rem 1.25rem; max-width: 64rem; margin: 0 auto; text-align:
   box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
 }
 .lesson h3 { margin: 0 0 .3rem; font-size: 1.25rem; }
+.lesson-visual { display: flex; gap: .45rem; margin-bottom: .8rem; }
+.lesson-visual img { height: 30px; width: auto; border-radius: 6px; box-shadow: 0 2px 6px rgba(0, 0, 0, .3); background: #fff; }
+.lesson-visual img.tall { height: 44px; }
 .lesson-meta { margin: 0 0 .6rem; font-weight: 700; opacity: .9; }
 .lesson p:last-child { margin: 0; opacity: .95; }
 .lessons-note { margin-top: 1.5rem; color: var(--muted); }

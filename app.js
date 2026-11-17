@@ -4,11 +4,11 @@
 (function () {
   var deck = [
     { badge: 'Multiplication', q: '7 × 8', a: '56', d: '7 × 8 = 56' },
-    { badge: 'Géographie', q: 'Capitale de la France', a: 'Paris', d: 'Paris — capitale de la France' },
-    { badge: 'Langues · Anglais', q: 'dog', a: 'chien', d: 'dog → le chien' },
-    { badge: 'Géographie', q: 'Département 33', a: 'Gironde', d: '33 — Gironde, préfecture Bordeaux' },
+    { badge: 'Géographie', q: 'Capitale de la France', a: 'Paris', d: 'Paris — capitale de la France', imgBack: 'assets/flags/fr.png', imgBackAlt: 'Drapeau de la France' },
+    { badge: 'Langues · Anglais', q: 'dog', a: 'chien', d: 'dog → le chien', img: 'assets/flags/gb.png', imgAlt: 'Drapeau du Royaume-Uni' },
+    { badge: 'Géographie', q: 'Département 33', a: 'Gironde', d: '33 — Gironde, préfecture Bordeaux', imgBack: 'assets/blasons/Blason_departement_fr_Gironde.svg', imgBackAlt: 'Blason de la Gironde', imgBackTall: true },
     { badge: 'Histoire', q: 'Capitale de l’Empire byzantin', a: 'Constantinople', d: 'Constantinople, aujourd’hui Istanbul' },
-    { badge: 'Langues · Espagnol', q: 'la casa', a: 'la maison', d: 'la casa → la maison' }
+    { badge: 'Langues · Espagnol', q: 'la casa', a: 'la maison', d: 'la casa → la maison', img: 'assets/flags/es.png', imgAlt: 'Drapeau de l’Espagne' }
   ];
 
   var queue = deck.map(function (c, i) { return { card: c, box: 2, index: i }; });
@@ -22,6 +22,8 @@
     question: document.getElementById('card-question'),
     answer: document.getElementById('card-answer'),
     detail: document.getElementById('card-detail'),
+    imgFront: document.getElementById('card-img-front'),
+    imgBack: document.getElementById('card-img-back'),
     review: document.getElementById('btn-review'),
     known: document.getElementById('btn-known'),
     next: document.getElementById('btn-next'),
@@ -42,11 +44,24 @@
     return n;
   }
 
+  function setImg(imgEl, src, alt, tall) {
+    if (src) {
+      imgEl.src = src;
+      imgEl.alt = alt || '';
+      imgEl.classList.toggle('tall', !!tall);
+      imgEl.hidden = false;
+    } else {
+      imgEl.hidden = true;
+    }
+  }
+
   function show(item) {
     current = item;
     el.card.classList.remove('flipped');
     el.badge.textContent = item.card.badge;
     el.badgeBack.textContent = item.card.badge;
+    setImg(el.imgFront, item.card.img, item.card.imgAlt, false);
+    setImg(el.imgBack, item.card.imgBack, item.card.imgBackAlt, item.card.imgBackTall);
     el.question.textContent = item.card.q;
     el.answer.textContent = item.card.a;
     el.detail.textContent = item.card.d;
